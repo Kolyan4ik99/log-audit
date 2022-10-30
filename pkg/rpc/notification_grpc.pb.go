@@ -2,7 +2,7 @@
 // versions:
 // - protoc-gen-go-grpc v1.2.0
 // - protoc             v3.21.5
-// source: proto/rpc.proto
+// source: proto/notification.proto
 
 package rpc
 
@@ -35,7 +35,7 @@ func NewNotificationClient(cc grpc.ClientConnInterface) NotificationClient {
 
 func (c *notificationClient) Send(ctx context.Context, in *Request, opts ...grpc.CallOption) (*Response, error) {
 	out := new(Response)
-	err := c.cc.Invoke(ctx, "/rpc.Notification/Send", in, out, opts...)
+	err := c.cc.Invoke(ctx, "/notification.Notification/Send", in, out, opts...)
 	if err != nil {
 		return nil, err
 	}
@@ -78,7 +78,7 @@ func _Notification_Send_Handler(srv interface{}, ctx context.Context, dec func(i
 	}
 	info := &grpc.UnaryServerInfo{
 		Server:     srv,
-		FullMethod: "/rpc.Notification/Send",
+		FullMethod: "/notification.Notification/Send",
 	}
 	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
 		return srv.(NotificationServer).Send(ctx, req.(*Request))
@@ -90,7 +90,7 @@ func _Notification_Send_Handler(srv interface{}, ctx context.Context, dec func(i
 // It's only intended for direct use with grpc.RegisterService,
 // and not to be introspected or modified (even as a copy)
 var Notification_ServiceDesc = grpc.ServiceDesc{
-	ServiceName: "rpc.Notification",
+	ServiceName: "notification.Notification",
 	HandlerType: (*NotificationServer)(nil),
 	Methods: []grpc.MethodDesc{
 		{
@@ -99,5 +99,5 @@ var Notification_ServiceDesc = grpc.ServiceDesc{
 		},
 	},
 	Streams:  []grpc.StreamDesc{},
-	Metadata: "proto/rpc.proto",
+	Metadata: "proto/notification.proto",
 }

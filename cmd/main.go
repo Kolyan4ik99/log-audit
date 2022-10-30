@@ -32,7 +32,7 @@ func main() {
 	if err != nil {
 		return
 	}
-	fmt.Println(cfg.Server.GetAddressPort())
+	fmt.Println("Service is successful start, address:", cfg.Server.GetAddressPort())
 
 	err = s.Serve(listen)
 	if err != nil {

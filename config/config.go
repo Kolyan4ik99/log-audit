@@ -11,7 +11,7 @@ func NewConfig() *Config {
 	return &Config{
 		Server: &ServerConfig{
 			NetProtocol: "tcp",
-			Address:     "",
+			Address:     "127.0.0.1",
 			Port:        "8000",
 		},
 		Db: &MongoConfig{

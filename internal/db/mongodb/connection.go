@@ -2,7 +2,6 @@ package mongodb
 
 import (
 	"context"
-	"fmt"
 
 	"github.com/Kolyan4ik99/log-audit/config"
 	"go.mongodb.org/mongo-driver/mongo"
@@ -21,7 +20,6 @@ func NewClient(ctx context.Context, c *config.MongoConfig) (*mongo.Client, error
 	if err != nil {
 		return nil, err
 	}
-	fmt.Println("OK")
 
 	err = client.Ping(ctx, nil)
 	if err != nil {

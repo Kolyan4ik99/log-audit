@@ -1,3 +1,5 @@
+all: proto mongo
+	@go run ./cmd
 
 proto:
 	@protoc --go-grpc_out=require_unimplemented_servers=false:. --go_out=. proto/notification.proto
